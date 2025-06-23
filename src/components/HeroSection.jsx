@@ -1,6 +1,19 @@
 import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
+import { Suspense, lazy } from 'react';
+
+// Lazily load the 3D model component
+const BlackHoleModel = lazy(() => import('./BlackHoleModel'));
+
+// Simple fallback component to use while the 3D component loads
+const SimpleBlackHole = () => {
+  return (
+    <div className="w-full h-full bg-transparent">
+      <div className="w-full h-full bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 animate-spin-slow"></div>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const { isDarkMode } = useTheme();
@@ -9,7 +22,7 @@ const HeroSection = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="section-container">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Add the semi-transparent background here */}
+          {/* Left side content */}
           <motion.div 
             className="w-full md:w-1/2 text-center md:text-left p-6 rounded-lg bg-white/50 dark:bg-dark/50 backdrop-blur-sm"
             initial={{ opacity: 0, y: 50 }}
@@ -33,21 +46,16 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+          {/* Right side - Black Hole with minimal container */}
           <motion.div 
-            className="w-full md:w-1/2 mt-12 md:mt-0 flex justify-center"
+            className="w-full md:w-1/2 h-96 mt-12 md:mt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              {/* Decorative blobs */}
-              <div className="absolute inset-0 rounded-full bg-primary-light/30 dark:bg-primary-dark/30 animate-float blur-xl"></div>
-              
-              {/* Profile image */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark flex items-center justify-center overflow-hidden">
-                <div className="text-8xl">👨‍💻</div>
-              </div>
-            </div>
+            <Suspense fallback={<SimpleBlackHole />}>
+              <BlackHoleModel />
+            </Suspense>
           </motion.div>
         </div>
       </div>
