@@ -7,14 +7,17 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    cursor: url('/src/assets/normal.cur'), auto !important;
   }
   
   body {
-    @apply font-sans bg-light text-dark transition-colors duration-300;
+    @apply font-sans bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300;
   }
   
-  .dark body {
-    @apply bg-dark text-light;
+  /* Make all interactive elements use the custom cursor */
+  a, button, input[type="button"], input[type="submit"], 
+  input[type="reset"], select, .cursor-pointer {
+    cursor: url('/src/assets/normal.cur'), pointer !important;
   }
 }
 
@@ -56,30 +59,8 @@
   }
 }
 
-/* Custom cursor styles */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--cursor-color, #3b82f6);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease;
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--cursor-color, #3b82f6);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease;
-}
+/* Remove custom cursor styles */
+/* .cursor-dot and .cursor-outline were removed */
 
 /* Animations */
 .animate-in {
