@@ -14,7 +14,7 @@ const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-light-dark/50 dark:bg-dark-light/10">
+    <section id="about" className="py-20">
       <div className="section-container">
         <motion.h2 
           className="section-title"

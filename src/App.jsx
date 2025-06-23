@@ -7,7 +7,7 @@ import SkillsSection from './components/SkillsSection';
 import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import InteractiveBackground from './components/InteractiveBackground';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   // Add scroll reveal effect
@@ -36,9 +36,8 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen overflow-hidden bg-light dark:bg-dark text-dark dark:text-light">
-        {/* Removed CustomCursor component */}
-        <InteractiveBackground />
+      <ParticleBackground />
+      <div className="relative min-h-screen">
         <Navbar />
         <main>
           <HeroSection />

@@ -9,8 +9,9 @@ const HeroSection = () => {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="section-container">
         <div className="flex flex-col md:flex-row items-center justify-between">
+          {/* Add the semi-transparent background here */}
           <motion.div 
-            className="w-full md:w-1/2 text-center md:text-left"
+            className="w-full md:w-1/2 text-center md:text-left p-6 rounded-lg bg-white/50 dark:bg-dark/50 backdrop-blur-sm"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -46,8 +47,6 @@ const HeroSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-light to-secondary-light dark:from-primary-dark dark:to-secondary-dark flex items-center justify-center overflow-hidden">
                 <div className="text-8xl">👨‍💻</div>
               </div>
-              
-              {/* Removed the floating emojis that were causing lag */}
             </div>
           </motion.div>
         </div>

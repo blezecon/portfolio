@@ -29,7 +29,7 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
         ? 'bg-white/90 dark:bg-dark/90 backdrop-blur-md shadow-md py-2' 
-        : 'bg-transparent py-4'
+        : 'bg-transparent backdrop-blur-sm py-4'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
@@ -53,7 +53,7 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full bg-light-dark dark:bg-dark-light text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors focus:outline-none"
+              className="p-2 rounded-full bg-light-dark/50 dark:bg-dark-light/50 backdrop-blur-sm text-dark dark:text-light hover:text-primary dark:hover:text-primary transition-colors focus:outline-none"
               aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -64,7 +64,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 mr-2 rounded-full bg-light-dark dark:bg-dark-light text-dark dark:text-light transition-colors focus:outline-none"
+              className="p-2 mr-2 rounded-full bg-light-dark/50 dark:bg-dark-light/50 backdrop-blur-sm text-dark dark:text-light transition-colors focus:outline-none"
               aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDarkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
@@ -72,7 +72,7 @@ const Navbar = () => {
             
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-md bg-light-dark dark:bg-dark-light text-dark dark:text-light transition-colors focus:outline-none"
+              className="p-2 rounded-md bg-light-dark/50 dark:bg-dark-light/50 backdrop-blur-sm text-dark dark:text-light transition-colors focus:outline-none"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -89,14 +89,14 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-white dark:bg-dark-light shadow-lg"
+            className="md:hidden bg-white/90 dark:bg-dark-light/90 backdrop-blur-md shadow-lg"
           >
             <div className="px-4 py-3 space-y-1">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block py-2 px-3 text-dark dark:text-light hover:bg-light-dark dark:hover:bg-dark rounded-md"
+                  className="block py-2 px-3 text-dark dark:text-light hover:bg-light-dark/30 dark:hover:bg-dark/30 rounded-md transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.name}
