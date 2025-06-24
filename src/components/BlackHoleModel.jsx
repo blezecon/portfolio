@@ -10,19 +10,12 @@ const BlackHoleModel = () => {
   const Model = () => {
     const { scene } = useGLTF('/src/assets/blackhole.glb');
     
-    // Add rotation animation
-    useFrame((state) => {
-      if (modelRef.current) {
-        modelRef.current.rotation.y += 0.005;
-      }
-    });
-    
     return (
       <primitive 
         ref={modelRef}
         object={scene} 
-        scale={2.5} // Increased the scale further
-        position={[0, 0, 0]} 
+        scale={0.7}
+        position={[1, -1.45, 0]} // Adjusted from [1, -2, 0] to [1, -1.3, 0] for a more subtle downward movement
       />
     );
   };
@@ -54,8 +47,7 @@ const BlackHoleModel = () => {
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        autoRotate
-        autoRotateSpeed={0.5}
+        autoRotate={false}
         minPolarAngle={Math.PI / 2 - 0.5}
         maxPolarAngle={Math.PI / 2 + 0.5}
       />

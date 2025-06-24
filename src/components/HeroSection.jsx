@@ -20,7 +20,14 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      <div className="section-container">
+      {/* Black hole positioned as background */}
+      <div className="absolute inset-0 z-0">
+        <Suspense fallback={<SimpleBlackHole />}>
+          <BlackHoleModel />
+        </Suspense>
+      </div>
+      
+      <div className="section-container relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left side content */}
           <motion.div 
@@ -46,22 +53,20 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Right side - Black Hole with minimal container */}
+          {/* Right side content area - now empty since black hole is moved */}
           <motion.div 
             className="w-full md:w-1/2 h-96 mt-12 md:mt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Suspense fallback={<SimpleBlackHole />}>
-              <BlackHoleModel />
-            </Suspense>
+            {/* Black hole removed from here */}
           </motion.div>
         </div>
       </div>
 
       {/* Scroll down indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20">
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
