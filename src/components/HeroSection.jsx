@@ -1,32 +1,12 @@
 import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
-import { Suspense, lazy } from 'react';
-
-// Lazily load the 3D model component
-const BlackHoleModel = lazy(() => import('./BlackHoleModel'));
-
-// Simple fallback component to use while the 3D component loads
-const SimpleBlackHole = () => {
-  return (
-    <div className="w-full h-full bg-transparent">
-      <div className="w-full h-full bg-gradient-to-r from-blue-900 to-indigo-900 opacity-20 animate-spin-slow"></div>
-    </div>
-  );
-};
 
 const HeroSection = () => {
   const { isDarkMode } = useTheme();
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Black hole positioned as background */}
-      <div className="absolute inset-0 z-0">
-        <Suspense fallback={<SimpleBlackHole />}>
-          <BlackHoleModel />
-        </Suspense>
-      </div>
-      
       <div className="section-container relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left side content */}
@@ -53,14 +33,14 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Right side content area - now empty since black hole is moved */}
+          {/* Right side content area */}
           <motion.div 
             className="w-full md:w-1/2 h-96 mt-12 md:mt-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Black hole removed from here */}
+            {/* This space can be used for other content or left empty */}
           </motion.div>
         </div>
       </div>
