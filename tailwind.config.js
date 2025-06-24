@@ -1,28 +1,48 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: 'class', // Enable dark/light mode toggle
   theme: {
     extend: {
       colors: {
-        primary: '#4565FF',
-        'primary-light': '#6985FF', 
-        'primary-dark': '#3B55D9',
-        secondary: '#9455FF',
-        'secondary-light': '#B585FF',
-        'secondary-dark': '#7934D9',
-        dark: '#121212',
-        'dark-light': '#1E1E1E',
-        light: '#F5F5F5',
-        'light-dark': '#E5E5E5'
+        primary: {
+          DEFAULT: '#4f46e5', // Indigo
+          light: '#818cf8',
+          dark: '#3730a3',
+        },
+        secondary: {
+          DEFAULT: '#06b6d4', // Cyan
+          light: '#67e8f9',
+          dark: '#0891b2',
+        },
+        dark: {
+          DEFAULT: '#111827', // Gray-900
+          light: '#374151', // Gray-800 - Adding this fixes the error
+          '50': 'rgba(17, 24, 39, 0.5)',
+          '30': 'rgba(17, 24, 39, 0.3)',
+          '10': 'rgba(17, 24, 39, 0.1)',
+        },
+        light: {
+          DEFAULT: '#f9fafb', // Gray-50
+          dark: '#f3f4f6', // Gray-100
+          '50': 'rgba(249, 250, 251, 0.5)',
+          '30': 'rgba(249, 250, 251, 0.3)',
+          '10': 'rgba(249, 250, 251, 0.1)',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       animation: {
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'spin-slow': 'spin 8s linear infinite',
+        'spin-very-slow': 'spin 15s linear infinite',
         'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'bounce-slow': 'bounce 2s infinite',
       },
       keyframes: {
         float: {
@@ -30,14 +50,47 @@ export default {
           '50%': { transform: 'translateY(-20px)' },
         }
       },
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['Fira Code', 'monospace'],
+      spacing: {
+        '18': '4.5rem',
+        '72': '18rem',
+        '84': '21rem',
+        '96': '24rem',
+        '128': '32rem',
       },
-      transitionDuration: {
-        '2000': '2000ms',
-      }
+      borderRadius: {
+        'xl': '1rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+      },
+      boxShadow: {
+        'light': '0 0 15px rgba(255, 255, 255, 0.3)',
+        'color': '0 0 15px rgba(79, 70, 229, 0.5)',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      zIndex: {
+        '-10': '-10',
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '65ch',
+            color: 'inherit',
+            a: {
+              color: '#4f46e5',
+              '&:hover': {
+                color: '#818cf8',
+              },
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 }
