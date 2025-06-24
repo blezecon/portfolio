@@ -20,7 +20,7 @@ module.exports = {
         },
         dark: {
           DEFAULT: '#111827', // Gray-900
-          light: '#374151', // Gray-800 - Adding this fixes the error
+          light: '#374151', // Gray-800
           '50': 'rgba(17, 24, 39, 0.5)',
           '30': 'rgba(17, 24, 39, 0.3)',
           '10': 'rgba(17, 24, 39, 0.1)',
@@ -34,8 +34,15 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Replace the default sans with CustomFont
+        sans: ['CustomFont', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Make CustomHeader available as a class
+        header: ['CustomHeader', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Keep the mono font
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        // Add the special fonts
+        logo: ['LogoBlezecon', 'sans-serif'],
+        enchant: ['EnchantmentTable', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -82,6 +89,19 @@ module.exports = {
               '&:hover': {
                 color: '#818cf8',
               },
+            },
+            // Apply CustomHeader to all headings in typography plugin
+            h1: {
+              fontFamily: ['CustomHeader', 'sans-serif'].join(','),
+            },
+            h2: {
+              fontFamily: ['CustomHeader', 'sans-serif'].join(','),
+            },
+            h3: {
+              fontFamily: ['CustomHeader', 'sans-serif'].join(','),
+            },
+            h4: {
+              fontFamily: ['CustomHeader', 'sans-serif'].join(','),
             },
           },
         },

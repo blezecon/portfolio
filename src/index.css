@@ -4,6 +4,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "LogoBlezecon";
+  src: url(../public/MinecraftFifty-Solid.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomHeader";
+  src: url(../public/PixelSplitter-Bold.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EnchantmentTable";
+  src: url(../public/SgaSmoothRegular-DO0Y3.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomFont";
+  src: url(../public/MinecraftRegular-Bmg3.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomFont";
+  src: url(../public/MinecraftBold-nMK1.otf);
+  font-weight: bold;
+  font-style: normal;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
@@ -12,6 +43,11 @@
   
   body {
     @apply font-sans bg-light dark:bg-dark text-dark dark:text-light transition-colors duration-300;
+  }
+  
+  /* Apply CustomHeader to all headings by default */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-header;
   }
   
   /* Make all interactive elements use the custom cursor */
@@ -27,7 +63,7 @@
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block;
+    @apply text-3xl md:text-4xl font-bold mb-8 relative inline-block font-header;
   }
   
   .section-title::after {
@@ -56,6 +92,11 @@
   
   .skill-badge {
     @apply px-3 py-1 rounded-full text-sm font-medium bg-primary-light/20 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-light;
+  }
+  
+  /* Replace the ID selector with a utility class */
+  .blezecon-logo {
+    @apply font-logo text-[3.5rem] text-primary;
   }
 }
 
@@ -89,8 +130,6 @@
   z-index: -1;
   overflow: hidden;
 }
-
-/* Add this to your existing CSS file */
 
 /* High resolution styles */
 @media (min-width: 3072px) {
@@ -156,43 +195,4 @@
     width: 2rem;
     height: 2rem;
   }
-}
-
-
-@font-face {
-  font-family: "LogoBlezecon";
-  src: url(../public/MinecraftFifty-Solid.otf);
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "CustomHeader";
-  src: url(../public/PixelSplitter-Bold.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "EnchantmentTable";
-  src: url(../public/SgaSmoothRegular-DO0Y3.ttf);
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "CustomFont";
-  src: url(../public/MinecraftRegular-Bmg3.otf);
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "CustomFont";
-  src: url(../public/MinecraftBold-nMK1.otf);
-  font-weight: bold;
-  font-style: normal;
-}
-
-
-#blezeconMN{
-  font-family: "LogoBlezecon", sans-serif;
-  font-size: 3.5rem;
-  color: #4f46e5;
 }
