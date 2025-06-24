@@ -35,7 +35,7 @@ const Navbar = () => {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="text-2xl font-bold text-primary">
-            <span className="font-mono">Blezecon</span>
+            <span id="blezeconMN">Blezecon</span>
           </a>
 
           {/* Desktop Navigation */}

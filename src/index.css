@@ -157,3 +157,42 @@
     height: 2rem;
   }
 }
+
+
+@font-face {
+  font-family: "LogoBlezecon";
+  src: url(../public/MinecraftFifty-Solid.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomHeader";
+  src: url(../public/PixelSplitter-Bold.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EnchantmentTable";
+  src: url(../public/SgaSmoothRegular-DO0Y3.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomFont";
+  src: url(../public/MinecraftRegular-Bmg3.otf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CustomFont";
+  src: url(../public/MinecraftBold-nMK1.otf);
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+#blezeconMN{
+  font-family: "LogoBlezecon", sans-serif;
+  font-size: 3.5rem;
+  color: #4f46e5;
+}
