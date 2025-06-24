@@ -9,7 +9,7 @@ const SimpleModelViewer = lazy(() => import('./SimpleModelViewer'));
 
 // Fallback loading spinner
 const ModelFallback = () => (
-  <div className="absolute flex items-center justify-center opacity-50" style={{ right: '20%', top: '20%', width: '450px', height: '450px' }}>
+  <div className="absolute flex items-center justify-center opacity-50" style={{ right: '20%', top: '20%', width: '550px', height: '550px' }}>
     <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
   </div>
 );
@@ -46,7 +46,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* 3D Model */}
+      {/* 3D Model - Adjusting container size to match renderer size */}
       {modelVisible && (
         <ErrorBoundary FallbackComponent={() => null}>
           <div 
@@ -54,10 +54,13 @@ const HeroSection = () => {
             style={{ 
               right: '20%',
               top: '20%',
-              width: '450px',
-              height: '450px',
-              opacity: 0.95,
-              zIndex: 30
+              width: '550px',            // Match the renderer size in SimpleModelViewer
+              height: '550px',           // Match the renderer size in SimpleModelViewer
+              opacity: 1,
+              zIndex: 40,                // Increased z-index
+              background: 'transparent', // Ensure transparency
+              border: 'none',            // Remove borders
+              outline: 'none'            // Remove outlines
             }}
           >
             <Suspense fallback={<ModelFallback />}>
@@ -120,7 +123,6 @@ function Blezecon() {
                 `}</code>
               </pre>
               
-              {/* REMOVED BLUR FROM SEAGREEN CARD */}
               <pre className="text-xs md:text-sm font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 rounded-md transform -rotate-2 absolute bottom-10 right-44 z-20">
                 <code>{`
 // The journey continues...
