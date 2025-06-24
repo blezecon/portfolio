@@ -1,20 +1,74 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 // Import the model directly
 import modelPath from '../assets/model.glb';
 
+// Check if model should be visible based on screen width
+const shouldShowModel = () => {
+  return window.innerWidth >= 768; // Show when width is >= 768px
+};
+
+// Check if we're at 3072px width
+const is3072Width = () => {
+  return (window.innerWidth >= 3072 && window.innerWidth < 3800);
+};
+
+// Check if we're at 4K resolution (3840 x 2160)
+const is4KResolution = () => {
+  return (window.innerWidth >= 3800 && window.innerWidth <= 3900);
+};
+
 const SimpleModelViewer = () => {
   const containerRef = useRef(null);
+  const rendererRef = useRef(null);
+  const sceneRef = useRef(null);
+  const cameraRef = useRef(null);
+  const modelGroupRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const [is3K, setIs3K] = useState(is3072Width());
+  const [is4K, setIs4K] = useState(is4KResolution());
+  
+  // Get appropriate scale based on screen size
+  const getResponsiveScale = () => {
+    const width = window.innerWidth;
+    
+    // Special case for 4K resolution (3840 x 2160) - much larger
+    if (is4KResolution()) {
+      return { size: 900, modelOffset: 0.1 }; // Increased from 700 to 900
+    }
+    // Special case for 3072px width screens - middle point between previous positions
+    if (is3072Width()) {
+      return { size: 750, modelOffset: 0.25 }; // Middle point between 0.1 and 0.4
+    }
+    // Special case for 2560x1440 resolution
+    if (width >= 2500 && width <= 2600) return { size: 650, modelOffset: 0.2 }; 
+    // Special case for 1366x768 resolution
+    if (width >= 1024 && width <= 1440) return { size: 400, modelOffset: 0.5 }; 
+    if (width < 1024) return { size: 400, modelOffset: 0.25 }; // lg
+    if (width < 1280) return { size: 450, modelOffset: 0.3 }; // xl
+    return { size: 550, modelOffset: 0.3 }; // 2xl and above
+  };
   
   useEffect(() => {
-    if (!containerRef.current) return;
+    // Early return if screen width < 768px to save resources
+    if (!shouldShowModel() || !containerRef.current) return;
     
-    // Create a simple Three.js scene
+    // Update resolution states
+    setIs3K(is3072Width());
+    setIs4K(is4KResolution());
+    
+    // Get responsive sizing
+    const { size, modelOffset } = getResponsiveScale();
+    setDimensions({ width: size, height: size });
+    
+    // Create a scene
     const scene = new THREE.Scene();
+    sceneRef.current = scene;
     
     // Use a wider field of view for a more dramatic appearance
     const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+    cameraRef.current = camera;
     
     // Create renderer with transparent background
     const renderer = new THREE.WebGLRenderer({ 
@@ -22,9 +76,11 @@ const SimpleModelViewer = () => {
       antialias: true,
       powerPreference: 'high-performance' // Request dedicated GPU if available
     });
+    rendererRef.current = renderer;
     
-    // Keep the renderer size at 550x550 to match container
-    renderer.setSize(550, 550);
+    // Set initial size - will be updated on resize
+    renderer.setSize(size, size);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
     renderer.setClearColor(0x000000, 0); // Completely transparent background
     containerRef.current.appendChild(renderer.domElement);
     
@@ -48,8 +104,10 @@ const SimpleModelViewer = () => {
     
     // Create a group to hold the model
     const modelGroup = new THREE.Group();
-    // Move the entire model group to the right
-    modelGroup.position.x = 0.3; // Positive x moves to the right
+    modelGroupRef.current = modelGroup;
+    
+    // Move the entire model group horizontally - responsive offset
+    modelGroup.position.x = modelOffset;
     scene.add(modelGroup);
     
     // Position camera to view from the front
@@ -92,8 +150,11 @@ const SimpleModelViewer = () => {
       const centerY = elementPos.top + elementPos.height / 2;
       
       // Calculate normalized mouse position from -1 to 1
-      const mouseX = (event.clientX - centerX) / (window.innerWidth / 2);
-      const mouseY = (event.clientY - centerY) / (window.innerHeight / 2);
+      const divisorX = window.innerWidth / 2;
+      const divisorY = window.innerHeight / 2;
+      
+      const mouseX = (event.clientX - centerX) / divisorX;
+      const mouseY = (event.clientY - centerY) / divisorY;
       
       // Set target rotations with limits
       targetRotationY = -Math.PI / 5 + mouseX * 0.5; // Base + mouse influence
@@ -104,8 +165,38 @@ const SimpleModelViewer = () => {
       targetRotationX = Math.max(-Math.PI / 6, Math.min(Math.PI / 6, targetRotationX));
     };
     
-    // Add event listener for mouse movement - make it passive for better performance
+    // Window resize handler for responsive canvas
+    const handleResize = () => {
+      // If screen width is now too small, don't update anything
+      if (!shouldShowModel()) return;
+      
+      // Update resolution states
+      setIs3K(is3072Width());
+      setIs4K(is4KResolution());
+      
+      if (!containerRef.current || !rendererRef.current || !cameraRef.current) return;
+      
+      // Update dimensions based on screen size
+      const { size, modelOffset } = getResponsiveScale();
+      setDimensions({ width: size, height: size });
+      
+      // Update renderer size
+      rendererRef.current.setSize(size, size);
+      
+      // Update model position
+      if (modelGroupRef.current) {
+        modelGroupRef.current.position.x = modelOffset;
+      }
+      
+      // Re-render immediately to prevent flickering
+      if (sceneRef.current && cameraRef.current) {
+        rendererRef.current.render(sceneRef.current, cameraRef.current);
+      }
+    };
+    
+    // Add event listeners
     window.addEventListener('mousemove', onMouseMove, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
     
     // Load the 3D model
     const loader = new GLTFLoader();
@@ -172,47 +263,84 @@ const SimpleModelViewer = () => {
     // Start animation loop
     animate();
     
+    // Handle initial resize
+    handleResize();
+    
     // Clean up
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('resize', handleResize);
       
-      if (containerRef.current) {
+      if (containerRef.current && rendererRef.current) {
         try {
-          containerRef.current.removeChild(renderer.domElement);
+          containerRef.current.removeChild(rendererRef.current.domElement);
         } catch (e) {
           console.error('Cleanup error:', e);
         }
       }
       
       // Dispose resources
-      scene.traverse((object) => {
-        if (object.geometry) object.geometry.dispose();
-        
-        if (object.material) {
-          if (Array.isArray(object.material)) {
-            object.material.forEach(material => material.dispose());
-          } else {
-            object.material.dispose();
+      if (sceneRef.current) {
+        sceneRef.current.traverse((object) => {
+          if (object.geometry) object.geometry.dispose();
+          
+          if (object.material) {
+            if (Array.isArray(object.material)) {
+              object.material.forEach(material => material.dispose());
+            } else {
+              object.material.dispose();
+            }
           }
-        }
-      });
+        });
+      }
       
-      renderer.dispose();
+      if (rendererRef.current) {
+        rendererRef.current.dispose();
+      }
     };
   }, []);
   
-  // Make this container completely transparent with no visible box
-  return <div 
-    ref={containerRef} 
-    style={{ 
-      width: '100%', 
-      height: '100%', 
+  // If screen width is less than 768px, don't render anything
+  if (!shouldShowModel()) {
+    return null;
+  }
+  
+  // Set the container styles
+  const getContainerStyle = () => {
+    const baseStyle = {
+      width: `${dimensions.width}px`, 
+      height: `${dimensions.height}px`,
+      margin: '0 auto',
       background: 'transparent', 
       border: 'none', 
       outline: 'none', 
-      boxShadow: 'none' 
-    }} 
-  />;
+      boxShadow: 'none',
+      transition: 'width 0.3s, height 0.3s'
+    };
+    
+    // If it's exactly 3072px width, position between previous values
+    if (is3K) {
+      baseStyle.marginLeft = '105px'; // Middle between 60px and 150px
+      baseStyle.position = 'relative';
+      baseStyle.right = '-50px'; // Middle between -20px and -80px
+    }
+    
+    // If it's 4K resolution, apply special styling
+    if (is4K) {
+      baseStyle.position = 'relative';
+      baseStyle.right = '-30px';  // Specific positioning for 4K
+    }
+    
+    return baseStyle;
+  };
+  
+  // The container style now uses the calculated dimensions with special positioning
+  return (
+    <div 
+      ref={containerRef} 
+      style={getContainerStyle()} 
+    />
+  );
 };
 
 export default SimpleModelViewer;

@@ -89,3 +89,71 @@
   z-index: -1;
   overflow: hidden;
 }
+
+/* Add this to your existing CSS file */
+
+/* High resolution styles */
+@media (min-width: 3072px) {
+  html {
+    font-size: 18px; /* Increase base font size for high-res displays */
+  }
+  
+  .section-container {
+    max-width: 1800px; /* Wider container for high-res displays */
+    padding: 0 3rem;
+  }
+  
+  .btn-primary, .btn-outline {
+    font-size: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+  }
+}
+
+/* 4K resolution specific styles */
+@media (min-width: 3840px) {
+  html {
+    font-size: 22px; /* Even larger base font size for 4K */
+  }
+  
+  .section-container {
+    max-width: 2200px; /* Much wider container for 4K displays */
+    padding: 0 4rem;
+  }
+  
+  .btn-primary, .btn-outline {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+  }
+  
+  /* Make headings larger */
+  h1, .h1 {
+    font-size: 3.5rem;
+  }
+  
+  h2, .h2 {
+    font-size: 2.75rem;
+  }
+  
+  h3, .h3 {
+    font-size: 2rem;
+  }
+  
+  /* Make other text larger */
+  p, li, a, button, input, textarea {
+    font-size: 1.25rem;
+  }
+  
+  /* Larger spacing */
+  .ultra-hd-4k .section-container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  /* Larger icons */
+  .ultra-hd-4k svg:not([class*="w-"]) {
+    width: 2rem;
+    height: 2rem;
+  }
+}
