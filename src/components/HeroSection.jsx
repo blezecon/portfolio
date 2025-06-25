@@ -213,11 +213,11 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className={`${textSizes.heading} font-bold mb-4`}>
-              Hi, I'm <span className="text-primary">Dipendu Ray</span>
+              <span className="font-minecraft text-dark dark:text-white">HI, I-M</span> <span className="font-minecraft text-primary">DIPENDU RAY</span>
               <span className="inline-block ml-2 animate-pulse-slow">👋</span>
             </h1>
-            <h2 className={`${textSizes.subheading} font-semibold mb-6`}>
-              Also known as <span className="text-secondary font-mono">Blezecon</span>
+            <h2 className={`${textSizes.subheading} mb-6`}>
+              <span className="font-header text-dark dark:text-white">ALSO KNOWN AS</span> <span className="font-header text-secondary">BLEZECON</span>
             </h2>
             <p className={`${textSizes.paragraph} text-gray-600 dark:text-gray-300`}>
               A passionate second-year college student at Techno Main SaltLake with 

@@ -34,15 +34,15 @@ module.exports = {
         },
       },
       fontFamily: {
-        // Replace the default sans with CustomFont
+        // Changed default sans to CustomFont
         sans: ['CustomFont', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Make CustomHeader available as a class
-        header: ['CustomHeader', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         // Keep the mono font
         mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        // Add the special fonts
-        logo: ['LogoBlezecon', 'sans-serif'],
-        enchant: ['EnchantmentTable', 'sans-serif'],
+        // Add custom fonts
+        'logo': ['LogoBlezecon', 'sans-serif'],
+        'header': ['CustomHeader', 'sans-serif'],
+        'enchant': ['EnchantmentTable', 'sans-serif'],
+        'minecraft': ['CustomFont', 'sans-serif'],
       },
       animation: {
         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -90,7 +90,6 @@ module.exports = {
                 color: '#818cf8',
               },
             },
-            // Apply CustomHeader to all headings in typography plugin
             h1: {
               fontFamily: ['CustomHeader', 'sans-serif'].join(','),
             },

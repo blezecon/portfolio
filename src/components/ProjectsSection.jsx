@@ -92,8 +92,8 @@ const ProjectsSection = () => {
             onClick={() => setFilter('all')}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
               filter === 'all'
-                ? 'bg-primary-DEFAULT text-white'
-                : 'bg-light-dark dark:bg-dark-light text-dark-DEFAULT dark:text-light-DEFAULT hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
+                ? 'bg-primary text-white dark:bg-primary dark:text-white' // Explicitly set colors for both themes
+                : 'bg-gray-200 dark:bg-dark-light text-dark dark:text-light hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
             }`}
           >
             All
@@ -105,8 +105,8 @@ const ProjectsSection = () => {
               onClick={() => setFilter(tag)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                 filter === tag
-                  ? 'bg-primary-DEFAULT text-white'
-                  : 'bg-light-dark dark:bg-dark-light text-dark-DEFAULT dark:text-light-DEFAULT hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
+                  ? 'bg-primary text-white dark:bg-primary dark:text-white' // Explicitly set colors for both themes
+                  : 'bg-gray-200 dark:bg-dark-light text-dark dark:text-light hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
               }`}
             >
               {tag}

@@ -4,33 +4,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Keep the font-face declarations in CSS */
 @font-face {
   font-family: "LogoBlezecon";
-  src: url(../public/MinecraftFifty-Solid.otf);
+  src: url(/MinecraftFifty-Solid.otf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "CustomHeader";
-  src: url(../public/PixelSplitter-Bold.ttf);
+  src: url(/PixelSplitter-Bold.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "EnchantmentTable";
-  src: url(../public/SgaSmoothRegular-DO0Y3.ttf);
+  src: url(/SgaSmoothRegular-DO0Y3.ttf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "CustomFont";
-  src: url(../public/MinecraftRegular-Bmg3.otf);
+  src: url(/MinecraftRegular-Bmg3.otf);
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "CustomFont";
-  src: url(../public/MinecraftBold-nMK1.otf);
+  src: url(/MinecraftBold-nMK1.otf);
   font-weight: bold;
   font-style: normal;
 }
@@ -94,14 +95,16 @@
     @apply px-3 py-1 rounded-full text-sm font-medium bg-primary-light/20 text-primary-dark dark:bg-primary-dark/30 dark:text-primary-light;
   }
   
-  /* Replace the ID selector with a utility class */
-  .blezecon-logo {
-    @apply font-logo text-[3.5rem] text-primary;
+  /* Logo styling class */
+  .logo-text {
+    @apply font-logo text-3xl text-primary;
+  }
+  
+  /* Name styling class based on the screenshot */
+  .name-text {
+    @apply font-minecraft text-primary;
   }
 }
-
-/* Remove custom cursor styles */
-/* .cursor-dot and .cursor-outline were removed */
 
 /* Animations */
 .animate-in {
@@ -194,5 +197,27 @@
   .ultra-hd-4k svg:not([class*="w-"]) {
     width: 2rem;
     height: 2rem;
+  }
+}
+
+/* Add this to your @layer components section */
+@layer components {
+  /* Other components... */
+
+  /* Filter buttons */
+  .filter-button {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all;
+  }
+  
+  .filter-button-inactive {
+    @apply bg-gray-200 text-dark 
+           hover:bg-primary-light/50 hover:text-dark
+           dark:bg-dark-light dark:text-light 
+           dark:hover:bg-primary-dark/50;
+  }
+  
+  .filter-button-active {
+    @apply bg-primary text-white border border-primary-dark
+           dark:bg-primary dark:text-white dark:border-primary-light;
   }
 }
