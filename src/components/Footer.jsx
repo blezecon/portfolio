@@ -12,52 +12,6 @@ const Footer = () => {
               <span className="font-minecraft">BLEZECON</span>
             </a>
           </div>
-          
-          <nav className="mb-8">
-            <ul className="flex flex-wrap justify-center gap-4 sm:gap-8">
-              <li>
-                <a 
-                  href="#home" 
-                  className="text-dark-DEFAULT dark:text-light-DEFAULT hover:text-primary-DEFAULT dark:hover:text-primary-DEFAULT transition-colors"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#about" 
-                  className="text-dark-DEFAULT dark:text-light-DEFAULT hover:text-primary-DEFAULT dark:hover:text-primary-DEFAULT transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#skills" 
-                  className="text-dark-DEFAULT dark:text-light-DEFAULT hover:text-primary-DEFAULT dark:hover:text-primary-DEFAULT transition-colors"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#projects" 
-                  className="text-dark-DEFAULT dark:text-light-DEFAULT hover:text-primary-DEFAULT dark:hover:text-primary-DEFAULT transition-colors"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-dark-DEFAULT dark:text-light-DEFAULT hover:text-primary-DEFAULT dark:hover:text-primary-DEFAULT transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
-          
           <div className="flex gap-6 mb-8">
             <a 
               href="https://github.com/blezecon" 

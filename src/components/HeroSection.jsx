@@ -171,20 +171,18 @@ const HeroSection = () => {
 
   return (
     <section id="home" className={`min-h-screen flex items-center justify-center relative overflow-hidden${getHighResClasses()}`}>
-      {/* Decorative background element */}
+      {/* Decorative background element - Removed the bluish orb */}
       <div className="absolute top-0 right-0 w-full md:w-1/2 h-full opacity-70 pointer-events-none z-0">
         <div className="relative w-full h-full">
-          {/* Using CSS gradients and animations - bigger for 4K */}
-          <div className={`absolute top-1/4 right-1/4 ${is4K ? 'w-[40rem] h-[40rem]' : isHighRes ? 'w-96 h-96' : 'w-64 h-64'} rounded-full bg-gradient-to-r from-blue-500 to-purple-600 blur-xl animate-pulse-slow`}></div>
-          <div className={`absolute top-1/3 right-1/3 ${is4K ? 'w-[30rem] h-[30rem]' : isHighRes ? 'w-72 h-72' : 'w-48 h-48'} rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 blur-xl animate-float`}></div>
+          {/* Removed the blue/purple gradient divs that created the orb */}
           
           {/* SVG elements for decoration - bigger for 4K */}
           <svg className={`absolute top-20 right-20 ${is4K ? 'w-[40rem] h-[40rem]' : isHighRes ? 'w-[30rem] h-[30rem]' : 'w-80 h-80'} text-primary opacity-20`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M40,-51.4C51.2,-41.8,59.2,-28.3,64.2,-12.7C69.2,2.9,71.1,20.5,64.6,34.6C58,48.7,42.9,59.3,26.8,63.1C10.8,67,-6.2,64.1,-22.7,59.1C-39.3,54.1,-55.5,47,-63.4,34.1C-71.3,21.2,-71,2.5,-66.4,-14.7C-61.9,-31.9,-53.2,-47.5,-40.7,-56.8C-28.2,-66.1,-14.1,-69.2,0.5,-69.8C15.1,-70.4,30.2,-68.6,40,-51.4Z" transform="translate(100 100)" />
+            <path fill="currentColor" d="M40,-51.4C51.2,-41.8,59.2,-28.3,64.2,-12.7C69.2,2.9,71.1,20.5,64.6,34.6C58,48.7,42.9,59.3,26.8,63.1C10.8,67,-6.2,64.1,-22.7,59.1C-39.3,54.1,-55.5,47,-63.4,34.1C-71.3,21.1,-70.9,2.3,-65.5,-13.4C-60.2,-29.1,-49.9,-41.8,-37.3,-51C-24.6,-60.3,-9.7,-66.1,3.5,-70.3C16.7,-74.6,28.8,-61,40,-51.4Z" transform="translate(100 100)" />
           </svg>
           
           <svg className={`absolute bottom-20 right-40 ${is4K ? 'w-[35rem] h-[35rem]' : isHighRes ? 'w-[25rem] h-[25rem]' : 'w-64 h-64'} text-secondary opacity-20 animate-spin-very-slow`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M41.3,-59.1C53,-49.9,61.5,-37.7,67.2,-23.6C72.9,-9.5,75.9,6.6,71.5,20.5C67.2,34.5,55.7,46.3,42.4,53.8C29.1,61.3,14.5,64.5,-0.7,65.5C-16,66.5,-32,65.3,-44.5,57.5C-57,49.7,-66,35.2,-70.3,19.5C-74.5,3.8,-74,-13.1,-67.7,-27.2C-61.5,-41.4,-49.5,-52.7,-36.2,-61.1C-22.8,-69.5,-8.2,-74.9,3.7,-79.8C15.5,-84.7,31,-84.1,41.3,-59.1Z" transform="translate(100 100)" />
+            <path fill="currentColor" d="M41.3,-59.1C53,-49.9,61.5,-37.7,67.2,-23.6C72.9,-9.5,75.9,6.6,71.5,20.5C67.2,34.5,55.7,46.3,42.4,53.8C29.1,61.3,14.5,64.5,-0.7,65.5C-16,66.5,-32,65.3,-44.5,57.3C-57.1,49.3,-66.3,34.5,-70.7,18.1C-75.1,1.6,-74.7,-16.4,-67.2,-29.8C-59.7,-43.2,-45.1,-51.9,-31.2,-60.2C-17.3,-68.6,-4.3,-76.7,7.6,-85.8C19.6,-95,39.2,-104.9,52,-95.9C64.9,-86.9,70.9,-59,71.4,-59.4C72,-59.7,66.9,-88.3,41.3,-59.1Z" transform="translate(100 100)" />
           </svg>
         </div>
       </div>
@@ -238,7 +236,7 @@ const HeroSection = () => {
           >
             {/* Code snippet decoration */}
             <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 bg-white/10 dark:bg-dark/30 backdrop-blur-sm rounded-md transform rotate-3 absolute top-10 right-32 z-20`}>
+              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg shadow-lg`}>
                 <code>{`
 function Blezecon() {
   const [skills, setSkills] = useState([
@@ -256,7 +254,7 @@ function Blezecon() {
                 `}</code>
               </pre>
               
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 rounded-md transform -rotate-2 absolute bottom-10 right-44 z-20`}>
+              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg shadow-lg mt-4`}>
                 <code>{`
 // The journey continues...
 const myJourney = {
@@ -279,7 +277,7 @@ export default myJourney;
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 1.5 }}
         >
-          <a href="#about" className={`flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors ${is4K ? 'text-xl' : isHighRes ? 'text-lg' : 'text-sm'}`}>
+          <a href="#about" className={`flex flex-col items-center text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors ${is4K ? 'text-xl' : isHighRes ? 'text-lg' : 'text-base'}`}>
             <span className="mb-2">Scroll Down</span>
             <FiArrowDown className={`${is4K ? 'text-4xl' : isHighRes ? 'text-3xl' : 'text-xl'}`} />
           </a>

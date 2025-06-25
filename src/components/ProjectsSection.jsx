@@ -24,7 +24,7 @@ const ProjectsSection = () => {
       description: "A responsive portfolio website built with React, Tailwind CSS, and Vite. Features interactive animations and dark/light themes.",
       tags: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
       image: "https://i.ibb.co/WWfK5DpG/New-Project-4.png",
-      github: "https://www.youtube.com/watch?v=xvFZjo5PgG0"
+      github: "https://github.com/blezecon/portfolio"
     },
     {
       title: "Retro game",
