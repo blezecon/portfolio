@@ -33,9 +33,9 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
-          {/* Logo - Updated to use font-logo class */}
-          <a href="#home" className="font-logo text-5xl text-primary">
-            BLEZECON
+          {/* Logo - Updated with flex and self-center to ensure vertical alignment */}
+          <a href="#home" className="flex items-center text-5xl font-bold text-primary">
+            <span className="font-minecraft flex items-center my-auto">BLEZECON</span>
           </a>
 
           {/* Desktop Navigation */}
