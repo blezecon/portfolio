@@ -15,14 +15,14 @@ const ProjectsSection = () => {
       title: "Personal Portfolio Website",
       description: "A responsive portfolio website built with React, Tailwind CSS, and Vite. Features interactive animations and dark/light themes.",
       tags: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
-      image: "https://via.placeholder.com/600x400?text=Portfolio+Website",
+      image: "https://i.ibb.co/CpsCrCfx/Screenshot-20250625-091857.png",
       github: "#",
       live: "#"
     },
     {
-      title: "E-commerce Dashboard",
-      description: "Admin dashboard for an e-commerce platform with real-time analytics, inventory management, and order processing features.",
-      tags: ["React", "Node.js", "Express", "MongoDB"],
+      title: "Retro Game ",
+      description: "For an event I made this retro game using pygame and python. It features classic arcade gameplay with pixel art graphics.",
+      tags: ["Python", "Pygame", "Games"],
       image: "https://via.placeholder.com/600x400?text=E-commerce+Dashboard",
       github: "#",
       live: "#"
@@ -37,6 +37,54 @@ const ProjectsSection = () => {
     },
     {
       title: "Task Management System",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System1",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System2",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System3",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System4",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System5",
+      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
+      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
+      image: "https://via.placeholder.com/600x400?text=Task+Management",
+      github: "#",
+      live: "#"
+    },
+    {
+      title: "Task Management System6",
       description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
       tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
       image: "https://via.placeholder.com/600x400?text=Task+Management",
