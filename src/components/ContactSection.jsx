@@ -26,26 +26,42 @@ const ContactSection = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitMessage('Thank you for your message! I will get back to you soon.');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
+    try {
+      const form = e.target;
+      const formData = new FormData(form);
+      
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
       });
       
-      // Clear success message after 5 seconds
-      setTimeout(() => {
-        setSubmitMessage('');
-      }, 5000);
-    }, 1500);
+      if (response.ok) {
+        setSubmitMessage('Thank you for your message! I will get back to you soon.');
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitMessage('');
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setSubmitMessage('Oops! There was an error submitting the form. Please try again.');
+      console.error('Form submission error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -140,7 +156,24 @@ const ContactSection = () => {
                 </div>
               )}
               
-              <form onSubmit={handleSubmit} className="space-y-6" netlify>
+              <form 
+                onSubmit={handleSubmit} 
+                className="space-y-6"
+                name="contact" 
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+              >
+                {/* Hidden input for Netlify form recognition */}
+                <input type="hidden" name="form-name" value="contact" />
+                
+                {/* Honeypot field to prevent spam */}
+                <p className="hidden">
+                  <label>
+                    Don't fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block mb-2 text-sm font-medium">Name</label>
