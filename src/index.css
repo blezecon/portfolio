@@ -221,3 +221,121 @@
            dark:bg-primary dark:text-white dark:border-primary-light;
   }
 }
+
+
+/* Custom Swiper Styles */
+.swiper {
+  width: 100%;
+  padding: 30px 10px;
+}
+
+.swiper-slide {
+  height: auto; /* Allow slides to size according to their content */
+  padding-bottom: 50px; /* Add space for pagination bullets */
+}
+
+/* Make cards equal height */
+.swiper-slide .card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 450px;
+}
+
+/* Style pagination bullets */
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(79, 70, 229, 0.5); /* primary color with transparency */
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 12px;
+  height: 12px;
+  background-color: #4f46e5; /* primary color */
+  opacity: 1;
+}
+
+/* Style navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #4f46e5; /* primary color */
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.dark .swiper-button-next,
+.dark .swiper-button-prev {
+  background-color: rgba(17, 24, 39, 0.5);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.dark .swiper-button-next:hover,
+.dark .swiper-button-prev:hover {
+  background-color: rgba(17, 24, 39, 0.7);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* High resolution adaptations */
+@media (min-width: 3072px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .swiper-pagination-bullet-active {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* 4K resolution adaptations */
+@media (min-width: 3840px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 30px;
+  }
+  
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .swiper-pagination-bullet-active {
+    width: 24px;
+    height: 24px;
+  }
+}

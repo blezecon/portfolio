@@ -46,10 +46,10 @@ const ContactSection = () => {
   };
 
   const socialLinks = [
-    { name: 'Email', icon: <FiMail />, link: 'mailto:your-email@example.com' },
+    { name: 'Email', icon: <FiMail />, link: 'mailto:blezecon007x@outlook.com?subject=Hello&body=Hi%20there!' },
     { name: 'GitHub', icon: <FiGithub />, link: 'https://github.com/blezecon' },
-    { name: 'LinkedIn', icon: <FiLinkedin />, link: 'https://linkedin.com/in/your-linkedin' },
-    { name: 'Twitter', icon: <FiTwitter />, link: 'https://twitter.com/your-twitter' }
+    { name: 'LinkedIn', icon: <FiLinkedin />, link: 'https://www.linkedin.com/in/blezecon7/' },
+    { name: 'Twitter', icon: <FiTwitter />, link: 'https://x.com/blezecon' }
   ];
 
   const containerAnimation = {

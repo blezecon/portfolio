@@ -2,6 +2,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiTag } from 'react-icons/fi';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// Import required modules
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 const ProjectsSection = () => {
   const [ref, inView] = useInView({
@@ -9,87 +17,80 @@ const ProjectsSection = () => {
     threshold: 0.1,
   });
 
-  // Sample projects - you should replace these with your actual projects
+  // Sample projects - you should replace these with your actual projects 600*400
   const projects = [
     {
       title: "Personal Portfolio Website",
       description: "A responsive portfolio website built with React, Tailwind CSS, and Vite. Features interactive animations and dark/light themes.",
       tags: ["React", "Tailwind CSS", "Vite", "Framer Motion"],
-      image: "https://i.ibb.co/CpsCrCfx/Screenshot-20250625-091857.png",
-      github: "#",
-      live: "#"
+      image: "https://i.ibb.co/WWfK5DpG/New-Project-4.png",
+      github: "https://www.youtube.com/watch?v=xvFZjo5PgG0"
     },
     {
-      title: "Retro Game ",
-      description: "For an event I made this retro game using pygame and python. It features classic arcade gameplay with pixel art graphics.",
-      tags: ["Python", "Pygame", "Games"],
-      image: "https://via.placeholder.com/600x400?text=E-commerce+Dashboard",
-      github: "#",
-      live: "#"
+      title: "Retro game",
+      description: " A retro-style game built with Pygame, featuring classic gameplay mechanics and pixel art graphics.",
+      tags: ["Python", "Pygame"],
+      image: "https://i.ibb.co/vCdtTDKC/retro.png",
+      github: "https://github.com/blezecon/PyGame",
+      
+    },
+    {
+      title: "Chat web app",
+      description: "A real-time chat application using WebSockets, allowing users to join rooms and send messages instantly.",
+      tags: ["React", "RESTful APIs", "Tailwind CSS", "Node.js", "Express", "MongoDB", "Vite"],
+      image: "https://i.ibb.co/3mXx3Fcc/New-Project.png",
+      github: "https://github.com/blezecon/ChatApp",
+      // live: "#"
+    },
+    {
+      title: "Service Website Clone",
+      description: " Just made this for learning purpose, a clone of a service website with a focus on responsive design and user experience.",
+      tags: ["React", "Vite", "Tailwind CSS"],
+      image: "https://i.ibb.co/ccZ8XW6r/Idk.png",
+      github: "https://github.com/blezecon/Tech-Company-Clone"
+    },
+    // Additional projects as mentioned in your request
+    {
+      title: "Nike First Copy",
+      description: "A clone of the Nike website showcasing first copy products with a focus on responsive design and user experience.",
+      tags: ["React", "CSS3", "Vite"],
+      image: "https://i.ibb.co/qLPTVZN8/nike.png",
+      github: "https://github.com/blezecon/Nike-First-Copy"
+    },
+    {
+      title: "Quote Generator",
+      description: "A web application that generates random quotes with a simple and elegant design, allowing users to share their favorite quotes.",
+      tags: ["HTML5", "CSS3", "API Integration", "JavaScript"],
+      image: "https://i.ibb.co/1GTmnpnW/Quote.png",
+      github: "https://github.com/blezecon/Quote-generator"
+    },
+    {
+      title: "Recipe Finder",
+      description: "A recipe discovery Web that allows users to search for recipes based on ingredients, dietary preferences, and cooking time.",
+      tags: ["HTML5", "CSS3", "API Integration", "JavaScript"],
+      image: "https://i.ibb.co/1G5f1y2Y/New-Project-1.png",
+      github: "https://github.com/blezecon/Recipe-Finder"
+    },
+    {
+      title: "Qr Code Generator",
+      description: " Can Generate QR codes for URLs, text",
+      tags: ["HTML5", "CSS3", "API Integration", "JavaScript"],
+      image: "https://i.ibb.co/hxxfDLF4/New-Project-2.png",
+      github: "https://github.com/blezecon/Qr-Code-generator"
+    },
+    {
+      title: "Image generator",
+      description: "A web application that generates images based on user input or predefined templates",
+      tags: ["HTML5", "CSS3", "API Integration", "JavaScript"],
+      image: "https://i.ibb.co/6dphr0H/New-Project-3.pngc",
+      github: "https://github.com/blezecon/Image-Generator"
     },
     {
       title: "Weather Forecast App",
-      description: "A weather application that provides real-time forecasts, historical data, and location-based services.",
-      tags: ["JavaScript", "RESTful APIs", "CSS3", "HTML5"],
-      image: "https://via.placeholder.com/600x400?text=Weather+App",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System1",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System2",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System3",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System4",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System5",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
-    },
-    {
-      title: "Task Management System6",
-      description: "A collaborative task management platform with user authentication, task assignment, and progress tracking.",
-      tags: ["React", "Express.js", "MongoDB", "Tailwind CSS"],
-      image: "https://via.placeholder.com/600x400?text=Task+Management",
-      github: "#",
-      live: "#"
+      description: "A weather forecasting application that provides real-time weather updates and forecasts for any location.",
+      tags: ["HTML5", "CSS3", "API Integration", "JavaScript"],
+      image: "https://i.ibb.co/twb3TP9X/New-Project.png",
+      github: "https://github.com/blezecon/Weather-Checker"
     }
   ];
 
@@ -138,10 +139,10 @@ const ProjectsSection = () => {
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           <button
             onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`filter-button ${
               filter === 'all'
-                ? 'bg-primary text-white dark:bg-primary dark:text-white' // Explicitly set colors for both themes
-                : 'bg-gray-200 dark:bg-dark-light text-dark dark:text-light hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
+                ? 'filter-button-active'
+                : 'filter-button-inactive'
             }`}
           >
             All
@@ -151,10 +152,10 @@ const ProjectsSection = () => {
             <button
               key={tag}
               onClick={() => setFilter(tag)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`filter-button ${
                 filter === tag
-                  ? 'bg-primary text-white dark:bg-primary dark:text-white' // Explicitly set colors for both themes
-                  : 'bg-gray-200 dark:bg-dark-light text-dark dark:text-light hover:bg-primary-light/50 dark:hover:bg-primary-dark/50'
+                  ? 'filter-button-active'
+                  : 'filter-button-inactive'
               }`}
             >
               {tag}
@@ -167,59 +168,94 @@ const ProjectsSection = () => {
           variants={container}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="w-full"
         >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              variants={item}
-              className="card overflow-hidden group"
-            >
-              <div className="relative overflow-hidden mb-4 rounded-lg h-60">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-DEFAULT/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-6">
-                  <div className="flex gap-4">
-                    {project.github && (
-                      <a 
-                        href={project.github} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-dark-light/80 hover:bg-primary-DEFAULT text-white p-3 rounded-full transition-colors"
-                      >
-                        <FiGithub />
-                      </a>
-                    )}
-                    {project.live && (
-                      <a 
-                        href={project.live} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="bg-dark-light/80 hover:bg-primary-DEFAULT text-white p-3 rounded-full transition-colors"
-                      >
-                        <FiExternalLink />
-                      </a>
-                    )}
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            pagination={{
+              clickable: true,
+              dynamicBullets: true,
+            }}
+            navigation={true}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 30,
+              },
+              1280: {
+                slidesPerView: 3,
+                spaceBetween: 40,
+              },
+              1536: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
+            modules={[Pagination, Navigation, Autoplay]}
+            className="mySwiper"
+          >
+            {filteredProjects.map((project, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  variants={item}
+                  className="card overflow-hidden group h-full"
+                >
+                  <div className="relative overflow-hidden mb-4 rounded-lg h-60">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-DEFAULT/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
+                      <div className="flex gap-4">
+                        {project.github && (
+                          <a 
+                            href={project.github} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-dark-light/80 hover:bg-primary-DEFAULT text-white p-3 rounded-full transition-colors"
+                          >
+                            <FiGithub />
+                          </a>
+                        )}
+                        {project.live && (
+                          <a 
+                            href={project.live} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="bg-dark-light/80 hover:bg-primary-DEFAULT text-white p-3 rounded-full transition-colors"
+                          >
+                            <FiExternalLink />
+                          </a>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-              
-              <div className="flex flex-wrap gap-2 mb-3">
-                {project.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className="skill-badge flex items-center gap-1">
-                    <FiTag size={12} />
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                  
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="skill-badge flex items-center gap-1">
+                        <FiTag size={12} />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </motion.div>
       </div>
     </section>
