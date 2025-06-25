@@ -82,9 +82,9 @@ const AboutSection = () => {
                 <FiBook className="text-2xl text-primary" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Education</h3>
-              <p>Pursuing a degree in Computer Science at Techno Main SaltLake.</p>
+              <p>Pursuing Bachelors degree in Computer Applications at Techno Main SaltLake.</p>
             </div>
-            
+             
             <div className="card flex flex-col items-center text-center p-6 hover:border-l-4 hover:border-primary transition-all">
               <div className="w-16 h-16 rounded-full bg-primary-light/20 dark:bg-primary-dark/20 flex items-center justify-center mb-4">
                 <FiAward className="text-2xl text-primary" />

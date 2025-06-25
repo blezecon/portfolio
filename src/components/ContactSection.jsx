@@ -2,12 +2,15 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiMail, FiGithub, FiLinkedin, FiTwitter, FiSend } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const { isDarkMode } = useTheme();
 
   const [formData, setFormData] = useState({
     name: '',
@@ -71,6 +74,12 @@ const ContactSection = () => {
     }
   };
 
+  // Input field style - always white background with black text regardless of theme
+  const inputClass = `w-full px-4 py-3 rounded-md border 
+    bg-white text-dark border-gray-300 
+    placeholder-gray-500
+    focus:outline-none focus:ring-2 focus:ring-primary-light`;
+
   return (
     <section id="contact" className="py-20">
       <div className="section-container">
@@ -107,7 +116,7 @@ const ContactSection = () => {
                     href={social.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-light-dark dark:bg-dark-light hover:bg-primary-DEFAULT dark:hover:bg-primary-DEFAULT hover:text-white transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-light-dark dark:bg-dark-light hover:bg-primary hover:text-white dark:hover:bg-primary transition-colors"
                   >
                     <span>{social.icon}</span>
                     <span>{social.name}</span>
@@ -142,7 +151,8 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-DEFAULT focus:outline-none focus:ring-2 focus:ring-primary-light"
+                      className={inputClass}
+                      placeholder="Your name"
                     />
                   </div>
                   <div>
@@ -154,7 +164,8 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-DEFAULT focus:outline-none focus:ring-2 focus:ring-primary-light"
+                      className={inputClass}
+                      placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
@@ -168,7 +179,8 @@ const ContactSection = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-DEFAULT focus:outline-none focus:ring-2 focus:ring-primary-light"
+                    className={inputClass}
+                    placeholder="What is this about?"
                   />
                 </div>
                 
@@ -181,7 +193,8 @@ const ContactSection = () => {
                     onChange={handleChange}
                     required
                     rows="5"
-                    className="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark-DEFAULT focus:outline-none focus:ring-2 focus:ring-primary-light"
+                    className={inputClass}
+                    placeholder="Your message here..."
                   ></textarea>
                 </div>
                 
