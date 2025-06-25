@@ -10,4 +10,4 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 - Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 - NonCommercial — You may not use the material for commercial purposes.
 
-Copyright (c) 2025 blezecon
+Copyright (c) 2025 Dipendu Ray
