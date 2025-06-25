@@ -71,8 +71,4 @@ portfolio/
 
 ## Contact
 
-<<<<<<< HEAD
 - GitHub: [@blezecon](https://github.com/blezecon)
-=======
-- GitHub: [@blezecon](https://github.com/blezecon)
->>>>>>> cd5d32d4127639420bedbea4ed525c9440cd913c

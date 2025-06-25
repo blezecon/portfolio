@@ -178,11 +178,21 @@ const HeroSection = () => {
           
           {/* SVG elements for decoration - bigger for 4K */}
           <svg className={`absolute top-20 right-20 ${is4K ? 'w-[40rem] h-[40rem]' : isHighRes ? 'w-[30rem] h-[30rem]' : 'w-80 h-80'} text-primary opacity-20`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M40,-51.4C51.2,-41.8,59.2,-28.3,64.2,-12.7C69.2,2.9,71.1,20.5,64.6,34.6C58,48.7,42.9,59.3,26.8,63.1C10.8,67,-6.2,64.1,-22.7,59.1C-39.3,54.1,-55.5,47,-63.4,34.1C-71.3,21.1,-70.9,2.3,-65.5,-13.4C-60.2,-29.1,-49.9,-41.8,-37.3,-51C-24.6,-60.3,-9.7,-66.1,3.5,-70.3C16.7,-74.6,28.8,-61,40,-51.4Z" transform="translate(100 100)" />
+            <path fill="currentColor" d="M40,-51.4C51.2,-41.8,59.2,-28.3,64.2,-12.7C69.2,2.9,71.1,20.5,64.6,34.6C58,48.7,42.9,59.3,26.8,63.1C10.8,67,-6.2,64.1,-22.7,59.1C-39.3,54.1,-55.5,47,-63.4,34.1C-71.3,21.2,-71,2.6,-65.8,-13.8C-60.7,-30.2,-50.8,-44.3,-37.7,-53.3C-24.7,-62.3,-8.6,-66.2,6.7,-64.3C22,-62.5,28.8,-61,40,-51.4Z" transform="translate(100 100)" />
           </svg>
           
           <svg className={`absolute bottom-20 right-40 ${is4K ? 'w-[35rem] h-[35rem]' : isHighRes ? 'w-[25rem] h-[25rem]' : 'w-64 h-64'} text-secondary opacity-20 animate-spin-very-slow`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path fill="currentColor" d="M41.3,-59.1C53,-49.9,61.5,-37.7,67.2,-23.6C72.9,-9.5,75.9,6.6,71.5,20.5C67.2,34.5,55.7,46.3,42.4,53.8C29.1,61.3,14.5,64.5,-0.7,65.5C-16,66.5,-32,65.3,-44.5,57.3C-57.1,49.3,-66.3,34.5,-70.7,18.1C-75.1,1.6,-74.7,-16.4,-67.2,-29.8C-59.7,-43.2,-45.1,-51.9,-31.2,-60.2C-17.3,-68.6,-4.3,-76.7,7.6,-85.8C19.6,-95,39.2,-104.9,52,-95.9C64.9,-86.9,70.9,-59,71.4,-59.4C72,-59.7,66.9,-88.3,41.3,-59.1Z" transform="translate(100 100)" />
+            <path fill="currentColor" d="M41.3,-59.1C53,-49.9,61.5,-37.7,67.2,-23.6C72.9,-9.5,75.9,6.6,71.5,20.5C67.2,34.5,55.7,46.3,42.4,53.8C29.1,61.3,14.5,64.5,-0.7,65.5C-16,66.5,-32,65.3,-44.5,57.8C-57.1,50.4,-66.2,36.5,-70.2,21.3C-74.1,6.1,-72.9,-10.5,-66.3,-24.2C-59.7,-38,-47.8,-48.8,-34.6,-57.4C-21.5,-66,-10.7,-72.4,1.8,-75C14.4,-77.5,28.7,-76.2,41.3,-59.1Z" transform="translate(100 100)" />
+          </svg>
+
+          {/* New SVG shape 1 - Top right area (first red circle in your image) - KEPT ROTATION ANIMATION */}
+          <svg className={`absolute top-10 right-10 ${is4K ? 'w-[45rem] h-[45rem]' : isHighRes ? 'w-[35rem] h-[35rem]' : 'w-96 h-96'} text-primary-dark opacity-20 animate-spin-slow`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M48.2,-70.9C63.7,-63.8,78.9,-52.9,83.7,-38.7C88.6,-24.5,83.1,-7,78.2,9.1C73.3,25.2,69,39.9,59.9,51C50.8,62.1,36.8,69.6,21.8,73.8C6.8,78,-9.1,78.8,-25.1,75.6C-41.1,72.4,-57.2,65.1,-69.2,52.9C-81.2,40.8,-89.1,23.8,-88.4,7.3C-87.8,-9.2,-78.6,-25.1,-67.6,-38C-56.5,-50.9,-43.6,-60.8,-29.9,-68.5C-16.2,-76.1,-1.6,-81.5,11.7,-80C24.9,-78.5,32.6,-78,48.2,-70.9Z" transform="translate(100 100)" />
+          </svg>
+          
+          {/* New SVG shape 2 - Bottom right area (second red circle in your image) */}
+          <svg className={`absolute bottom-10 right-10 ${is4K ? 'w-[40rem] h-[40rem]' : isHighRes ? 'w-[30rem] h-[30rem]' : 'w-80 h-80'} text-secondary-dark opacity-20`} viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M33.9,-46.7C46.1,-38.5,59.5,-32.1,65.1,-21.3C70.7,-10.5,68.5,4.8,63.4,18.4C58.4,32,50.4,44,39.3,51.4C28.3,58.9,14.1,61.8,0.2,61.6C-13.7,61.3,-27.5,58,-39,50.4C-50.5,42.8,-59.8,30.9,-64.7,17C-69.6,3.1,-70.2,-12.9,-64.7,-26.3C-59.2,-39.6,-47.7,-50.4,-35.2,-58.6C-22.6,-66.8,-9,-72.5,1.4,-74.4C11.8,-76.3,21.7,-54.9,33.9,-46.7Z" transform="translate(100 100)" />
           </svg>
         </div>
       </div>
@@ -234,9 +244,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Code snippet decoration */}
+            {/* Code snippet decoration - REMOVED SHADOW */}
             <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg shadow-lg`}>
+              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 bg-white/10 dark:bg-dark/30 backdrop-blur-sm rounded-lg absolute top-4 right-4`}>
                 <code>{`
 function Blezecon() {
   const [skills, setSkills] = useState([
@@ -254,7 +264,7 @@ function Blezecon() {
                 `}</code>
               </pre>
               
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg shadow-lg mt-4`}>
+              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 backdrop-blur-sm rounded-lg absolute bottom-4 left-4`}>
                 <code>{`
 // The journey continues...
 const myJourney = {
