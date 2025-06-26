@@ -3,6 +3,7 @@ import { FiArrowDown } from 'react-icons/fi';
 import { useTheme } from '../context/ThemeContext';
 import { Suspense, lazy, useState, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import EnchantedCode from './EnchantedCode'; // Import the new component
 
 // Simplified 3D model component
 const SimpleModelViewer = lazy(() => import('./SimpleModelViewer'));
@@ -83,6 +84,34 @@ const HeroSection = () => {
   const [isHighRes, setIsHighRes] = useState(isHighResolution());
   const [is3K, setIs3K] = useState(is3072Width());
   const [is4K, setIs4K] = useState(is4KResolution());
+
+  // Code snippet content
+  const codeSnippet1 = `
+function Blezecon
+  const skills, setSkills] = useState
+    React JavaScript CSS HTML
+  
+  
+  useEffect 
+    console.log Portfolio loaded!
+  
+
+  return 
+    Developer name= Dipendu Ray"
+  
+
+  `;
+
+  const codeSnippet2 = `
+The journey continues...
+const myJourney 
+  education: Techno Main SaltLake
+  passion: Web Development
+  goal: "Creating amazing experiences
+
+
+export default myJourney
+  `;
 
   // Delay loading the model to ensure the rest of the page loads properly first
   useEffect(() => {
@@ -223,7 +252,7 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
           {/* Left side content */}
           <motion.div 
-            className={`w-full md:w-1/2 text-center md:text-left p-6 rounded-lg bg-white/50 dark:bg-dark/50 backdrop-blur-sm ${is4K ? 'p-10' : isHighRes ? 'p-8' : ''}`}
+            className={`w-full md:w-1/2 text-center md:text-left p-6 rounded-lg backdrop-blur-sm ${is4K ? 'p-10' : isHighRes ? 'p-8' : ''}`}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -252,38 +281,17 @@ const HeroSection = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Code snippet decoration */}
+            {/* Code snippet decoration - replaced with EnchantedCode component */}
             <div className="absolute top-0 right-0 w-full h-full overflow-hidden pointer-events-none">
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg`}>
-                <code>{`
-function Blezecon() {
-  const [skills, setSkills] = useState([
-    "React", "JavaScript", "CSS", "HTML"
-  ]);
-  
-  useEffect(() => {
-    console.log("Portfolio loaded!");
-  }, []);
-
-  return (
-    <Developer name="Dipendu Ray" />
-  );
-}
-                `}</code>
-              </pre>
+              <EnchantedCode 
+                code={codeSnippet1}
+                className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-primary dark:text-primary-light p-4 rounded-lg opacity-50`}
+              />
               
-              <pre className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 bg-white/10 dark:bg-dark/30 rounded-lg absolute bottom-0 right-0`}>
-                <code>{`
-// The journey continues...
-const myJourney = {
-  education: "Techno Main SaltLake",
-  passion: "Web Development",
-  goal: "Creating amazing experiences"
-};
-
-export default myJourney;
-                `}</code>
-              </pre>
+              <EnchantedCode 
+                code={codeSnippet2}
+                className={`${is4K ? 'text-lg md:text-xl' : isHighRes ? 'text-base md:text-lg' : 'text-xs md:text-sm'} font-mono text-secondary dark:text-secondary-light p-4 rounded-lg absolute bottom-0 right-0 opacity-50`}
+              />
             </div>
           </motion.div>
         </div>

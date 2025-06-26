@@ -36,8 +36,8 @@ module.exports = {
       fontFamily: {
         // Changed default sans to CustomFont
         sans: ['CustomFont', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        // Keep the mono font
-        mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        // This is used in cards nehind the model (gliching thats why I set its name to mono)
+        mono: ['EnchantmentTable', 'sans-serif'],
         // Add custom fonts
         'logo': ['LogoBlezecon', 'sans-serif'],
         'header': ['CustomHeader', 'sans-serif'],
