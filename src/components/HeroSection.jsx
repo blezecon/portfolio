@@ -117,7 +117,7 @@ export default myJourney
   useEffect(() => {
     const timer = setTimeout(() => {
       setModelVisible(true && shouldShowModel());
-    }, 1000);
+    }, 300);
     
     // Update position and visibility on resize
     const handleResize = () => {
